@@ -326,4 +326,36 @@ tokenID,name,description,file_name,attributes[Background],attributes[Glitch],att
 2,Max Love USDC #2,"By acquiring Max Love USDC #2, you not only possess a valuable digital asset, but also become a proud supporter of the USDC continued growth and development. Whether you're a dedicated USDC enthusiast, a crypto art connoisseur, or an avid NFT collector, this artwork is a testament to your belief in the potential of cryptocurrencies.",2.png,Purple,No,Gold Laser Eyes,Red Lips,Blue Text,USDC
 ```
 
+### Add a static background frame.
+
+Using ImageMagick, to merge all those PNGs (1.png to 3000.png) with a master background called frameeth.png 716 px X 609 px. For each 512 px X 512 px PNG image, they must be positioned at X 51 px and Y 47 px.
+
+If ImageMagick is not installed:
+
+```sh
+sudo apt install imagemagick
+```
+
+Loop through all PNG files from 1 to 3000 (config according to your project):
+
+```sh
+for i in $(seq 1 3000); do
+    input_file="${i}.png"
+    output_file="ready/${i}.png"
+    
+    # Check if the input file exists before processing
+    if [ -f "$input_file" ]; then
+        convert frameeth.png \
+            "$input_file" -geometry 512x512+51+47 \
+            -composite "$output_file"
+        
+        echo "Processed: ${i}.png"
+    else
+        echo "File not found: ${i}.png - skipping"
+    fi
+done
+
+echo "All done!"
+```
+
 Hope you create some awesome artworks with this code 👄
