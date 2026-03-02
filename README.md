@@ -310,4 +310,20 @@ Trait type: Top lid
 }
 ```
 
+### Make Metadata.csv compatible with openSea Studio Upload
+
+Run the command below from the main dir:
+
+```sh
+node convert-metadata.js
+```
+
+The output located in the /build/json/metadata.csv will look something like this:
+
+```sh
+tokenID,name,description,file_name,attributes[Background],attributes[Glitch],attributes[Laser Eyes],attributes[Lips],attributes[Text],attributes[Coin]
+1,Max Love Bitget Token #1,"By acquiring Max Love Bitget Token #1, you not only possess a valuable digital asset, but also become a proud supporter of the Bitget Token continued growth and development. Whether you're a dedicated Bitget Token enthusiast, a crypto art connoisseur, or an avid NFT collector, this artwork is a testament to your belief in the potential of cryptocurrencies.",1.png,Red,No,Blue Laser Eyes,Orange Lips,Gold Text,Bitget Token
+2,Max Love USDC #2,"By acquiring Max Love USDC #2, you not only possess a valuable digital asset, but also become a proud supporter of the USDC continued growth and development. Whether you're a dedicated USDC enthusiast, a crypto art connoisseur, or an avid NFT collector, this artwork is a testament to your belief in the potential of cryptocurrencies.",2.png,Purple,No,Gold Laser Eyes,Red Lips,Blue Text,USDC
+```
+
 Hope you create some awesome artworks with this code 👄
